@@ -1,5 +1,5 @@
 # microdbf
-Tiny stream-oriented dbf reader
+Tiny pure python stream-oriented dbf reader
 
 ```python
 from microdbf import parse_dbf
@@ -24,4 +24,9 @@ with open('some.dbf', 'rb') as fd:
 ```
 
 This project based on [dbfread](https://github.com/olemb/dbfread/) code
+
+# License
+-------
+
+microdbf is released under the terms of the [MIT license](http://en.wikipedia.org/wiki/MIT_License>)
 
