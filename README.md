@@ -25,6 +25,11 @@ with open('some.dbf', 'rb') as fd:
 
 This project based on [dbfread](https://github.com/olemb/dbfread/) code
 
+# Restrictions
+
+* No memo-files handling (FPT and DBT)
+* No deleted records handling
+
 # License
 -------
 
