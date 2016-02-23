@@ -12,6 +12,10 @@ if sys.argv[-1] == "publish":
     os.system("python setup.py sdist upload")
     sys.exit()
 
+elif sys.argv[-1] == "build":
+    os.system("python setup.py sdist")
+    sys.exit()
+
 elif sys.argv[-1] == "test":
     os.system("python3 -m unittest parser_test.py")
     sys.exit()
