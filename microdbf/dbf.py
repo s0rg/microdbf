@@ -19,24 +19,24 @@ def read_headers(stream, encoding):
             break
 
         field = DBFField.read(stream)
-        field['type'] = ord(field['type'])
-        field['name'] = field['name'].split(b'\0')[0].decode(encoding)
+        ftype = ord(field['type'])
+        fname = field['name'].split(b'\0')[0].decode(encoding)
         fields.append((
-            field['name'],
+            fname,
             field['length'],
-            field['type'],
+            ftype,
         ))
 
     # validate
-    for n, l, t in fields:
+    for name, length, ftype in fields:
 
-        if t == 73 and l != 4:
+        if ftype == 73 and length != 4:
             message = 'Field: `{}` of type I must have length 4 (was {})'
-            raise ValueError(message.format(n, l))
+            raise ValueError(message.format(name, length))
 
-        elif t == 76 and l != 1:
+        elif ftype == 76 and length != 1:
             message = 'Field: `{}` of type L must have length 1 (was {})'
-            raise ValueError(message.format(n, l))
+            raise ValueError(message.format(name, length))
 
     return fields
 
@@ -68,6 +68,7 @@ def parse_dbf(fd_or_bytes, encoding=None):
         if sep in eo_rec:
             break
         elif sep != b' ':
+            # skip it
             seek(skip_len, io.SEEK_CUR)
             continue
 
