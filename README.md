@@ -23,7 +23,7 @@ with open('some.dbf', 'rb') as fd:
 
 ```
 
-This project based on [dbfread](https://github.com/olemb/dbfread/) code
+This project is based on [dbfread](https://github.com/olemb/dbfread/) code
 
 # Restrictions
 
